@@ -5,9 +5,9 @@ WORKDIR /myApp/
 RUN apt-get update && apt-get install git -y && apt-get install nginx -y
 RUN apt-get install curl -y && apt-get install nano -y
 RUN git clone https://github.com/Ezidal/dockerTest.git
-#WORKDIR /etc/nginx/sites-available/
-#RUN cat /myApp/dockerTest/config > default
+#WORKDIR /etc/nginx/sites-enable/
+RUN cat config > /etc/nginx/sites-enable/default
 WORKDIR /myApp/dockerTest/
-#RUN chmod +x start.sh
 RUN javac SimpleHttpServer1.java
-#CMD ["/usr/sbin/nginx","-g","daemon off;"]
+RUN nginx
+CMD ["java SimpleHttpServer1;"]
