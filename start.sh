@@ -7,3 +7,4 @@
 java /myApp/dockerTest/SimpleHttpServer1.java &
 
 
+wait

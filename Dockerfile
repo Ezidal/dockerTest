@@ -7,9 +7,9 @@ EXPOSE 80
 ENV PatForADD=/
 VOLUME ["/volum"]
 WORKDIR /myApp/
-STOPSIGNAL 9
+#STOPSIGNAL 9
 ARG LIBRARY_VERSION=2.32
-ONBUILD MAINTAINER Sergey
+ONBUILD RUN echo "Sergey"
 RUN apt-get update && \
  apt-get install git -y && \
  apt-get install nginx -y && \
@@ -21,8 +21,7 @@ WORKDIR /myApp/dockerTest/
 COPY default /etc/nginx/sites-enabled/
 RUN nginx && \
  javac SimpleHttpServer1.java && \
- chmod +x /myApp/dockerTest/start.sh ;\
- echo "Library: ${LIBRARY_VERSION}"
+ chmod +x /myApp/dockerTest/start.sh
 ADD default $PatForADD
 HEALTHCHECK --interval=5s --timeout=10s --retries=3 \
     CMD curl -f http://localhost/ || exit 1
