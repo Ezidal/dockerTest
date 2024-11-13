@@ -18,7 +18,7 @@ public class SimpleHttpServer1 {
     static class MyHandler implements HttpHandler {
         @Override
         public void handle(HttpExchange t) throws IOException {
-            String response = "МАЛЕНЬКИЙ сервер на java";
+            String response = "SMALL server by java";
             t.sendResponseHeaders(200, response.length());
             OutputStream os = t.getResponseBody();
             os.write(response.getBytes());
