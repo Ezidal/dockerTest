@@ -1,0 +1,5 @@
+FROM amd64/openjdk:24-slim
+LABEL autor=Sergey
+RUN apt-get update && apt-get install nginx -y
+EXPOSE 80
+CMD ["Hello my friend"]
